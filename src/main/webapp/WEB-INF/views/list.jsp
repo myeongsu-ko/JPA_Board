@@ -4,10 +4,10 @@
 <%@ include file="layout/header.jsp" %>
 
 
-<main>
-	<h1>계시글 목록</h1>
+<main >
+	<h1 class="bg-dark text-white">계시글 목록</h1>
 	<hr />
-	<table border="1">
+	<table class="table table-dark table-striped" >
 	<tr>
 		<td>ID</td>
 		<td>TITLE</td>

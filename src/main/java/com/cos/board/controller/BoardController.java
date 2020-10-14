@@ -33,14 +33,25 @@ public class BoardController {
 		return "saveForm";
 	}
 	
+//	@PostMapping("/save")
+//	//두개만 받아서 오는데 json은 오브젝트를 받아서 오지만 이건 아님 그래서 
+//	//두개만 받는 클래스를 따로 만든다 
+//	public String save(BoardSaveRequestDto dto) {
+//		boardService.글쓰기(dto);
+//		System.out.println(dto);
+//		return "redirect:/list";
+//	}
+	
 	@PostMapping("/save")
+	@ResponseBody
 	//두개만 받아서 오는데 json은 오브젝트를 받아서 오지만 이건 아님 그래서 
 	//두개만 받는 클래스를 따로 만든다 
-	public String save(BoardSaveRequestDto dto) {
+	public String save(@RequestBody BoardSaveRequestDto dto) {
 		boardService.글쓰기(dto);
 		System.out.println(dto);
-		return "redirect:/list";
+		return "ok";
 	}
+	
 	
 	//스프링에서 Controller의 메서드의 파라메터 부분은 자동 DI가 됨.
 	@GetMapping({"","/","/list"})
@@ -50,7 +61,7 @@ public class BoardController {
 	}
 	
 	@GetMapping("/board/{id}")
-	public String detail(@PathVariable int id,Model model){
+	public String detail(@PathVariable int id,Model model) {
 		//Board board = boardRepository.findById(id).orElse(new Board());
 		//Board board = boardRepository.findById(id).orElseGet(() ->new Board());
 		model.addAttribute("board",boardService.글상세보기(id));

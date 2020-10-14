@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-    <footer>
+    <footer class="bg-dark text-white">
 	<br/><br/>
 	<hr/>
 	<p>부산IT교육센터</p>
